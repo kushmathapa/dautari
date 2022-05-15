@@ -18,7 +18,7 @@
             <form v-if="isLogin" @submit.prevent="send" > 
                 <input v-model="message" placeholder="Message" required />>
                 <button type="submit">
-                    <SendIcon />>
+                    <SendIcon />
                 </button>
             </form>
         </div>
