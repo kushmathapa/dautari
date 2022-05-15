@@ -1,6 +1,6 @@
 <template>
   <Nav />
-  <Chat />>
+  <Chat />
 </template>
 
 <script>
