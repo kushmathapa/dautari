@@ -4,7 +4,7 @@
             <Message v-for="{ id, text, userPhotoURL, userName, userId } in messages" 
             :key="id" 
             :name="userName"
-            :photo-url ="userPhotoURL"
+            :image-url ="userPhotoURL"
             :sender="userId === user?.uid"
             >
                 {{text}}
@@ -17,8 +17,10 @@
         <div class="container-sm">
             <form v-if="isLogin" @submit.prevent="send" > 
                 <input v-model="message" placeholder="Message" required />
-                <button type="submit">
-                    <SendIcon />
+                <button>
+                <svg class="icon-send hover:text-green-500 hover:text-green-500 svg-icon fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                	<path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+				</svg>	
                 </button>
             </form>
         </div>
@@ -29,11 +31,10 @@
 import { ref, watch, nextTick } from 'vue'
 import { useAuth, useChat } from '@/firebase'
 
-import SendIcon from './SendIcon.vue'
 import Message from './Message.vue'
 
 export default {
-    components: { Message, SendIcon },
+    components: { Message },
     setup() {
         const { user, isLogin } = useAuth()
         const { messages, sendMessage } = useChat()

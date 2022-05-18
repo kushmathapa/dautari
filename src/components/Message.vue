@@ -2,8 +2,8 @@
     <div class="message">
         <span v-if="!sender"> {{ name }} </span>
         <div class="flex" :class="sender ? 'flex-row-reverse' : ''">
-            <Avatar class="mt-1" :src="photoUrl" />
-            <div class=" text w-3/4" :class="sender ? 'bg-green-800': 'bg-gray-700'">
+            <Image class="mt-1" :src="imageUrl" />
+            <div class="p-5 rounded-2xl rounded-tl-none w-3/4" :class="!sender ? 'bg-white text-black': 'bg-green-50 text-green-900'">
                 <slot />
             </div>
         </div>
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Avatar from './Avatar.vue'
+import Image from './Image.vue'
 export default {
-    components: { Avatar },
+    components: { Image },
     props: {
         name: { type: String, default: ''},
-        photoUrl: { type: String, default: ''},
+        imageUrl: { type: String, default: ''},
         sender: { type: Boolean, default: false}
     }
 }
